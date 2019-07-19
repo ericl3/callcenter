@@ -7,6 +7,7 @@ import io from 'socket.io-client';
 import Visualizer from './Visualizer'
 import { Row, Col } from 'react-bootstrap'
 import '../App.css'
+import { motion } from 'framer-motion';
 
 class CallBlock extends Component {
 
@@ -243,7 +244,7 @@ class CallBlock extends Component {
                 return (
                     <div>
                         <Row>
-                            <Input type="text" placeholder="Your Name" onChange={this.handleNameChange} value={this.state.name} id="nameForm" />
+                            <Input className="customer-form-name" type="text" placeholder="Your Name" onChange={this.handleNameChange} value={this.state.name} id="nameForm" />
                         </Row>
                         <Row>
                             <Button onClick={this.becomeAvailableCustomer}>
@@ -281,8 +282,12 @@ class CallBlock extends Component {
                     </div>
                 )
             } else if (this.state.callState === undefined) {
+                var variants = {
+                    hidden: {opacity: 0},
+                    visible: { opacity: 1 }
+                }
                 return (
-                    <div>
+                    <motion.div initial="hidden" animate="visible" transition={{duration: 1}} variants={variants}>
                         <Row>
                             <Input type="text" placeholder="Your Name" onChange={this.handleNameChange} value={this.state.name} id="nameForm" />
                         </Row>
@@ -291,7 +296,7 @@ class CallBlock extends Component {
                                 Go Online
                             </Button>
                         </Row>
-                    </div>
+                    </motion.div>
                 )
             } else if (this.state.callState === "incomingCall") {
                 return (

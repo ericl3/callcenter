@@ -1,0 +1,298 @@
+html{
+    /* font-family: 'Overpass', sans-serif; */
+}
+
+.footer{
+    width: 100vw;
+    background-color: #E0F7FD;
+    height: 8vh;
+}
+
+.footer-container{
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    height: 8vh;
+    align-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-landing{
+    width: 100vw;
+    background-color: #ecedf1;
+    height: 6vh;
+    opacity: .8;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+}
+
+.footer-container-landing{
+    display: flex;
+    justify-content: space-between;
+    width: 90vw;
+    height: 6vh;
+    align-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: flex-end;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+/* home */
+.landing{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-image: url("airdrop.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.form-div{
+    background-color: #f8f8fc;
+    border-radius: 20px;
+    width: 25vw;
+    /* height: 47vh; */
+    margin-left: 5%;
+    padding: 10px 25px;
+    /* display: inline; */
+    opacity: .8;
+    margin-top: 7%;
+    padding-bottom: 20px;
+}
+
+input{
+    font-size: 20px;
+    /* font-family: 'Overpass', sans-serif; */
+    padding: 5px 10px;
+    border-radius: 8px;
+    border: solid 1px #484848;
+    margin-bottom: 10px;
+    background-color: transparent;
+    width: 90%;
+}
+
+.row-flex{
+    display: flex;
+    flex-direction: row;
+}
+
+.search-button{
+    background-color: #B5B5DF;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.call-floater{
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
+.call-button{
+    margin: 10px;
+    background-color: #a1a1d5;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+/* Listing Page CSS */
+.listing-card{
+    border-radius: 12px;
+    padding: 0px 0px 10px 0px;
+    width: 15vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin: 20px;
+    background-color: white;
+
+}
+
+.listing-image{
+    width: 15vw;
+    max-height: 200px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+
+.listing-desc{
+    padding: 10px 10px;
+}
+
+.book-button{
+    background-color: #00bef0;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    font-size: 15px;
+    padding: 10px 15px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.three-row{
+    display: flex;
+    justify-content: center;
+}
+
+.center-me{
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.listing-bg{
+    background-color: #e0f7fd;
+    min-height: 92vh;
+}
+
+/* book page */
+.book{
+    height: 92vh;
+    width: 100vw;
+    background-color: #E0F7FD;
+}
+
+.book-container{
+    /* background-color: lightblue; */
+    width: 90vw;
+    /* height: 92vh; */
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    padding-top: 2em;
+}
+
+.book-info-column{
+    /* background-color: #f3f3f3; */
+    width: 20%;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 1em;
+    height: 50vh;
+}
+
+.book-photo{
+    width: 18vw;
+}
+
+.book-call-button{
+    /* font-family: 'Overpass', sans-serif; */
+    border: none;
+    border-radius: 12px;
+    padding: 10px 15px;
+    background-color: #00BEF0;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.book-hangup-button{
+    /* font-family: 'Overpass', sans-serif; */
+    border: none;
+    border-radius: 12px;
+    padding: 10px 15px;
+    background-color: #ff673c;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.text-center{
+    text-align: center;
+}
+
+.lighter{
+    font-weight: lighter;
+}
+
+.italics{
+    font-style: italic;
+}
+
+.book-main-column{
+    padding: 1em;
+    /* display: flex; */
+}
+
+.inline{
+    display: flex;
+    /* flex-direction: column; */
+}
+
+.flex-row{
+    display: flex;
+}
+/* reviews */
+.reviews{
+    display: inline;
+}
+
+.review-container{
+    display: flex;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px 15px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    max-width: 25vw;
+    margin: 1em;
+}
+
+.review-text{
+    display: inline;
+    font-size: 15px;
+}
+
+.review-profile-pic{
+    border-radius: 100%;
+    height: 50px;
+    margin-right: 15px;
+}
+
+/* call area */
+.call-area{
+    padding-left: 1em;
+}
+
+.call-card{
+    display: flex;
+    flex-direction: column;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px 15px;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    width: 25vw;
+    margin: 1em;   
+}
+
+.call-area-rep{
+    border-radius: 100%;
+    height: 100px;
+}
+
+.hundred-width{
+    width: 100%;
+}

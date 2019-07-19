@@ -7,14 +7,21 @@ import Manager from "./components/layout/Manager"
 import { BandwidthProvider } from '@bandwidth/shared-components'
 import './App.css';
 
+import Home from './components/customer components/Home';
+import ListingPage from './components/customer components/ListingPage';
+import Book from './components/customer components/Book';
+import Rep from './components/rep components/Rep';
+
 class App extends Component {
   render() {
     return (
       <BandwidthProvider>
         <Router>
           <div className="App">
-            <Route exact path="/customer" component={Customer} />
-            <Route exact path="/customer-service" component={CustomerService} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/listings" component={ListingPage} />
+            <Route exact path="/customer" component={Book} />
+            <Route exact path="/customer-service" component={Rep} />
             <Route exact path="/manager" component={Manager} />
           </div>
         </Router>

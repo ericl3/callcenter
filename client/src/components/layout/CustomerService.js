@@ -11,7 +11,7 @@ class CustomerService extends Component {
     render() {
         return (
             <Container>
-                <h1> Customer Service Page </h1>
+                {/* <h1> Customer Service Page </h1> */}
                 <CallBlock userType="CustomerService" />
             </Container>
         )

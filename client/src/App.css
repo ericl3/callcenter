@@ -37,8 +37,9 @@
 }
 
 #nameForm {
-  width: 20%;
+  width: 75%;
   margin-bottom: 15px;
+
 }
 
 .sound-wave {
@@ -49,4 +50,10 @@
   display: none;
 }
 
+.customer-form-name{
+  width: 100% !important;
+}
 
+.top-margin-fifteen{
+  margin-top: 10px;
+}

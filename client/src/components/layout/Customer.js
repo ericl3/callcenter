@@ -11,7 +11,6 @@ class Customer extends Component {
     render() {
         return (
             <Container>
-                <h1> Customer Page </h1>
                 <CallBlock userType="Customer" />
             </Container>
         )

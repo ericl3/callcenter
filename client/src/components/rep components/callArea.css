@@ -1,0 +1,124 @@
+.callArea{
+    width: 80vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #E0F7FD;
+}
+
+.rep-call-area{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
+.incoming-call-div{
+    height: 10vh;
+    
+}
+
+/* incoming call stuff */
+
+
+.incoming-call-buttons{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-content: center;
+}
+
+.call-info{
+    display: flex;
+    background-color: #B673E4;
+    border-radius: 12px;
+    color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    justify-content: center;
+    /* align-content: center; */
+    align-items: center;
+    margin-top: 25px;
+    padding: 10px 20px;
+    font-size: 20px;
+}
+
+.call-info-call{
+    display: flex;
+    flex-direction: column;
+}
+
+.call-profile{
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    margin-right: 15px;
+}
+
+.answer{
+    background-color: #4D8D7C;
+    color: white;
+    padding: 8px 13px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.disabled{
+    background-color: gray;
+    color: white;
+    padding: 8px 13px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+.decline{
+    background-color: #FF7E59;
+    color: white;
+    padding: 8px 13px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+/* control area for manager */
+.manager-container{
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 2em;
+    width: 80%;
+    
+    
+}
+
+.manager-call-grid{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: space-around; */
+}
+
+.manager-card{
+    border-radius: 12px;
+    background-color: white;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    width: 15vw;
+    margin-bottom: 2em;
+    margin-right: 1em;
+}
+
+.flex-row{
+    display: flex;
+}
