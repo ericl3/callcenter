@@ -18,7 +18,7 @@ class Sidebar extends Component {
                 <Button.Danger>Log Out</Button.Danger>
             )
         }
-        
+
     }
 
     render(){
@@ -28,7 +28,7 @@ class Sidebar extends Component {
                     <h2>{this.props.companyName}.</h2>
                     <img alt="rep profile" className="profilePic" src={this.props.repImage} />
                     {/* TODO: add rating */}
-                    <h4>Hi {this.props.repName}</h4>
+                    <h4>Hi {this.props.repName}.</h4>
                     <br/>
                     {/* <p>Online for: <span className="heavier">{calculateTime}</span></p> */}
                     <p>Calls taken: <span className="heavier">{this.props.repCallCount}</span></p>
