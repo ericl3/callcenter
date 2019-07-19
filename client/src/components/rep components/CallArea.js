@@ -32,7 +32,7 @@ class CallArea extends Component {
                     </div>
                     <div className="rep-call-area">
                         {/* <button className="answer" onClick={this.incomingCall}>Simulate Incoming Call</button>       */}
-                        <CustomerService />
+                        <CustomerService setName={this.props.setName}/>
                     </div>
                 </div>
            )

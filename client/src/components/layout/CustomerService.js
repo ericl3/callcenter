@@ -12,7 +12,7 @@ class CustomerService extends Component {
         return (
             <Container>
                 {/* <h1> Customer Service Page </h1> */}
-                <CallBlock userType="CustomerService" />
+                <CallBlock setName={this.props.setName} userType="CustomerService" />
             </Container>
         )
     }

@@ -408,6 +408,8 @@ class CallBlock extends Component {
     }
 
     // Customer service will become available
+
+    //TODO: USE THIS TO UPDATE UI
     becomeAvailableAgent() {
         this.setState({
             callState: "waiting"
@@ -416,6 +418,7 @@ class CallBlock extends Component {
             agentName: this.state.name,
             agentSocketId: this.socket.id
         }
+        this.props.setName(data.agentName);
         axios.post("/api-sessions/become-available-agent", data);
     }
 
