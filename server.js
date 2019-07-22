@@ -40,7 +40,10 @@ var options = {
 var server = https.Server(options, app)
 
 /* Config Socket.io while allowing server to listen to port 5000*/
-const io = require('socket.io')(server);
+const io = require('socket.io')(server, {
+    pingInterval: 10000,
+    pingTimeout: 15000,
+});
 server.listen(5000);
 io.on('connection', (socket) => {
     console.log("connected: " + socket.id);

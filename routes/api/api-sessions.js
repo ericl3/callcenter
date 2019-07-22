@@ -62,9 +62,7 @@ class APISessionsRouter {
 
     // generate key for session id
     generate_key() {
-        var sha = crypto.createHash('sha256');
-        sha.update(Math.random().toString());
-        return sha.digest('hex');
+        return '_' + Math.random().toString(36).substr(2, 9);
     }
 
 
@@ -163,8 +161,8 @@ class APISessionsRouter {
         res.status(200).send(session);
     }
 
-    add_active_call_manager(session) {
-        this.redis.rpush('active_calls', JSON.stringify(session), (err, reply) => {
+    async add_active_call_manager(session) {
+        await this.redis.rpush('active_calls', JSON.stringify(session), (err, reply) => {
             if (err) {
                 console.log(err);
             }
@@ -174,13 +172,12 @@ class APISessionsRouter {
             console.log("========ADDING========");
             // Signal to manager
             //this.io.to(`${this.managerSocket}`).emit("added active call");
-            this.io.emit("added active call");
-
         })
+        await this.io.emit("added active call");
     }
 
-    remove_active_call_manager(session) {
-        this.redis.lrem('active_calls', 0, JSON.stringify(session), (err, reply) => {
+    async remove_active_call_manager(session) {
+        await this.redis.lrem('active_calls', 0, JSON.stringify(session), (err, reply) => {
             if (err) {
                 console.log(err);
             }
@@ -191,12 +188,11 @@ class APISessionsRouter {
                 console.log("========REMOVING========")
             }
             // Signal to manager
-            this.io.emit("removed active call");
-
         })
+        await this.io.emit("removed active call");
     }
 
-    removeCustomer(req, res) {
+    async removeCustomer(req, res) {
         var customerName = req.body.customerName;
         var customerSocketId = req.body.customerSocketId;
         var customerData = {
@@ -204,7 +200,7 @@ class APISessionsRouter {
             customerSocketId: customerSocketId,
         }
 
-        this.io.to(`${req.body.agentSocketId}`).emit('customer hung up');
+        await this.io.to(`${req.body.agentSocketId}`).emit('customer hung up');
         if (req.body.session !== undefined) {
             this.remove_active_call_manager(req.body.session);
         }

@@ -27,7 +27,9 @@ class CallBlock extends Component {
 
         this.subscriptions = [];
         this.publisher = undefined;
-        this.socket = io.connect();
+        this.socket = io.connect({
+            reconnection: false
+        });
         if (this.props.userType === "CustomerService") {
             this.socket.on('incoming call', (session) => {
                 this.setState({
@@ -66,7 +68,6 @@ class CallBlock extends Component {
                 subscriber.subscribeToAudio(false);
             })
             this.socket.on('subscribe to manager', () => {
-                console.log("will subscribe to manager");
                 //var stream = this.subscriptions[this.subscriptions.length - 1].stream;
                 var subscriber = this.subscriptions[this.subscriptions.length - 1].subscription;
                 //this.state.session.subscribe(stream, 'video-container');
@@ -283,11 +284,11 @@ class CallBlock extends Component {
                 )
             } else if (this.state.callState === undefined) {
                 var variants = {
-                    hidden: {opacity: 0},
+                    hidden: { opacity: 0 },
                     visible: { opacity: 1 }
                 }
                 return (
-                    <motion.div initial="hidden" animate="visible" transition={{duration: 1}} variants={variants}>
+                    <motion.div initial="hidden" animate="visible" transition={{ duration: 1 }} variants={variants}>
                         <Row>
                             <Input type="text" placeholder="Your Name" onChange={this.handleNameChange} value={this.state.name} id="nameForm" />
                         </Row>
@@ -431,7 +432,6 @@ class CallBlock extends Component {
             session: this.state.sessionObject
         }
         await this.joinSession();
-        console.log("test");
         axios.post("/api-sessions/create-session", data)
     }
 
