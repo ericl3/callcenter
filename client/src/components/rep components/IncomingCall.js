@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from '@bandwidth/shared-components'
 
 class IncomingCall extends Component{
     state = {
@@ -6,6 +7,16 @@ class IncomingCall extends Component{
         callPending: true
     }
 
+    answer= () => {
+        this.setState({callActive: true, callPending: false});
+        this.props.createSession();
+    }
+
+    decline = () => {
+        this.setState({callActive: false});
+        this.props.declineCall();
+    }
+    
     renderCallMessage = () => {
         if(this.state.callActive){
             return(
@@ -21,20 +32,20 @@ class IncomingCall extends Component{
 
     resetState = () => {
         this.setState({callActive: false, callPending: false});
-        this.props.noActiveOrIncomingCall();
     }
 
     renderButtons = () => {
         if(this.state.callActive){
             return(
-                <button onClick={() => this.resetState()} className="decline hundred-width">End Call</button>
+                <Button.danger>End Call</Button.danger>
             )
         }
         else{
             return(
                 <div className="incoming-call-buttons">
-                        <button onClick={() => this.setState({callActive: true, callPending: false})} className="answer">Answer</button>
-                        <button onClick={() => this.resetState()} className="decline">Decline</button>
+                        {/* <Button onClick={() => this.setState({callActive: true, callPending: false})} className="margin-right-small">Answer</Button> */}
+                        <Button onClick={() => this.answer()} className="margin-right-small">Answer</Button>
+                        <Button.Danger onClick={() => this.decline()} className="">Decline</Button.Danger>
                 </div>
             )
         }
@@ -48,7 +59,7 @@ class IncomingCall extends Component{
                         <img alt="employee profile" src="https://randomuser.me/api/portraits/lego/5.jpg" className="call-profile" />
                         <div className="call-info-call">
                             <p className="no-margin">{this.renderCallMessage()}</p>
-                            <h5 className="no-margin">Josh</h5>
+                            <h5 className="no-margin">{this.props.customerName}</h5>
                         </div>
                     </div>
                     <br></br>

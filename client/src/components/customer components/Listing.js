@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Button } from '@bandwidth/shared-components';
 const Listing = ( props ) => {
     return(
         <div className="listing-card">
@@ -7,7 +7,7 @@ const Listing = ( props ) => {
             <div className="listing-desc">
                 <h4>{props.title}</h4>
                 <p>${props.price}</p>
-                <a className="book-button" href="/customer">Book Now</a>
+                <a href="/customer"><Button>Book Now</Button></a>
             </div>
         </div>
     )

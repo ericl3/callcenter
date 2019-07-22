@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import IncomingCall from './IncomingCall';
 import Employee from './Employee';
 import CustomerService from '../layout/CustomerService';
+import Manager from "./Manager";
 class CallArea extends Component {
     state = { callActive: false, incomingCall: false }
 
@@ -31,7 +32,6 @@ class CallArea extends Component {
                     
                     </div>
                     <div className="rep-call-area">
-                        {/* <button className="answer" onClick={this.incomingCall}>Simulate Incoming Call</button>       */}
                         <CustomerService setName={this.props.setName}/>
                     </div>
                 </div>
@@ -72,6 +72,7 @@ class CallArea extends Component {
                         <Employee name="Jim Fletcherson" active="true"/>
                         <Employee name="Joe Flatstone" active="false"/>
                     </div>
+                    <Manager />
                 </div>
             )
         }

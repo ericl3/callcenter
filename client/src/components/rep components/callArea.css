@@ -18,6 +18,9 @@
     height: 10vh;
     
 }
+.margin-right-small{
+    margin-right: .5em;
+}
 
 /* incoming call stuff */
 

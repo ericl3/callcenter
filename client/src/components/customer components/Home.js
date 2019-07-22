@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import CallCard from './CallCard';
 import './customer.css';
+import { Input, Button } from '@bandwidth/shared-components';
+
 class Home extends Component{
     state = {
         callActive: false
@@ -22,26 +24,26 @@ class Home extends Component{
             <div>
                 <div className="landing">
                     <div className="call-floater">
-                        <button onClick={() => this.callClicked()} className="call-button">
+                        <Button onClick={() => this.callClicked()} >
                             Call Us
-                        </button>
+                        </Button>
                         {this.renderCallCard()}
                     </div>
                     <div className="form-div">
                         <h1>Find Your Castle.</h1>
                         <label htmlFor="location">WHERE</label>
-                        <input className="form-input"  name="location" type="text" placeholder="Location" />
+                        <Input name="location" type="text" placeholder="Location" />
 
                         
                         <label htmlFor="checkin">Check-In</label>
-                        <input type="date" name="checkin" />
+                        <Input name="checkin" type="date" />
 
                         <label htmlFor="checkout">Check-Out</label>
-                        <input type="date" name="checkout"  />
+                        <Input name="checkout" type="date" />
                         
                         <label htmlFor="guests">Guests</label>
-                        <input type="number" name="guests" placeholder="# of Bouncers" />
-                        <a href="/listings" className="search-button">Search</a>
+                        <Input type="number" name="guests" placeholder="# of Bouncers" />
+                        <a href="/listings" ><Button>Search</Button></a>
                         
                     </div>
                     <div className="footer-landing">

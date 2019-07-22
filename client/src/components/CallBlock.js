@@ -8,6 +8,7 @@ import Visualizer from './Visualizer'
 import { Row, Col } from 'react-bootstrap'
 import '../App.css'
 import { motion } from 'framer-motion';
+import IncomingCall from './rep components/IncomingCall';
 
 class CallBlock extends Component {
 
@@ -302,7 +303,8 @@ class CallBlock extends Component {
             } else if (this.state.callState === "incomingCall") {
                 return (
                     <div>
-                        <Row>
+                        <IncomingCall createSession={this.createSession} declineCall={this.declineCall} customerName={this.state.sessionObject.customer} />
+                        {/* <Row>
                             <p> Incoming Call From: {this.state.sessionObject.customer} </p>
                         </Row>
                         <Row>
@@ -316,8 +318,8 @@ class CallBlock extends Component {
                                     Decline Call
                                 </Button.Danger>
                             </Col>
-                        </Row>
-                    </div >
+                        </Row> */}
+                    </div>
                 )
             }
         } else if (this.state.callState === "activeCall") {
