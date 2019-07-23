@@ -119,7 +119,8 @@
     padding: 10px;
     width: 15vw;
     margin-bottom: 2em;
-    margin-right: 1em;
+    margin-right: auto;
+    margin-left: auto;
 }
 
 .flex-row{

@@ -9,6 +9,7 @@ import { Row, Col } from 'react-bootstrap'
 import '../App.css'
 import { motion } from 'framer-motion';
 import IncomingCall from './rep components/IncomingCall';
+import Employee from './rep components/Employee';
 
 class CallBlock extends Component {
 
@@ -341,10 +342,11 @@ class CallBlock extends Component {
         if (this.state.session === undefined) {
             return (
                 <div>
-                    <p>Session ID: {session.sessionId}</p>
+                    <Employee name={session.agent} active={"true"} joinSession={this.joinSession} customerName={session.customer}/>
+                    {/* <p>Session ID: {session.sessionId}</p>
                     <p>Customer Name: {session.customer}</p>
                     <p>Agent Name: {session.agent}</p>
-                    <Button onClick={this.joinSession}>Join Call</Button>
+                    <Button onClick={this.joinSession}>Join Call</Button> */}
                 </div>
             )
         } else {

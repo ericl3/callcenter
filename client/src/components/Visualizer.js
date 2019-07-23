@@ -14,7 +14,7 @@ class Visualizer extends Component {
                     record={this.record}
                     className={this.props.className}
                     strokeColor={this.props.color}
-                    backgroundColor="white" />
+                    backgroundColor="#E0f7fd" />
             </div>
         )
     }

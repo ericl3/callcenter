@@ -9,13 +9,13 @@ class Manager extends Component {
 
     render() {
         return (
-            <Container>
-                <h1> Manager Page </h1>
+            <div className="full-height manager-container">
+                <h1> Hi, Ms. Manager. </h1>
                 <Row>
                     <h2> Active Calls Available for Joining</h2>
                     <ActiveCalls />
                 </Row>
-            </Container>
+            </div>            
         )
     }
 }

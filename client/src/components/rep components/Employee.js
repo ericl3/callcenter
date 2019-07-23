@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import { Button, Input } from '@bandwidth/shared-components'
 class Employee extends Component {
     state = {callActive: false }
 
@@ -11,13 +11,13 @@ class Employee extends Component {
         }
         if(!this.state.callActive){
             return(
-                <button className="answer" onClick={this.activateCall}>Join Call</button>
+                <Button onClick={this.props.joinSession}>Join Call</Button>
             );
         }
 
         else{
             return(
-                <button className="disabled" disabled> In Call</button>
+                <Button className="disabled" disabled> In Call</Button>
             );
         }
     }
@@ -30,7 +30,7 @@ class Employee extends Component {
                 <p>On the phone with: <span className="heavier">Jim Fletcherson</span></p>
                 <p className="no-margin">Call Duration: <span className="heavier">2:32</span></p>
                 <br />
-                <button className="decline" onClick={this.endCall}>End Call</button>
+                <Button.danger className="decline" onClick={this.endCall}>End Call</Button.danger>
             </div>
             )
         }
@@ -54,7 +54,7 @@ class Employee extends Component {
             return(
                 <div>
                     <h4 className="heavier">Call Info</h4>
-                    <p className="no-margin">Duration: <span className="heavier">4 Minutes</span></p>
+                    <p className="no-margin">Customer Name: <span className="heavier">{this.props.customerName}</span></p>
                     <p className="">Topic: <span className="heavier">Booking</span></p>
                 </div>
             )
