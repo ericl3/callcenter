@@ -1,68 +1,58 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Call Center Demo
+The call center demo demonstrates Bandwidth's growing WebRTC offerings. This demo is audio only and has no PSTN interconnect. All of the call are created as conferences, but there are only "customer", "customer service", and "manager" profiles.  
 
+Using a React front end, calls can be placed between different browsers using the /customer page and the /customer-service page. The /manager page allows a "manager" to listen in on a call, barge in on a call, and enable whisper.
+
+See below for more information on how to download, run, and install.
+
+## Required Tools & Services
+- [NodeJS](https://nodejs.org/en/download/)
+- [NPM](https://www.npmjs.com/get-npm) (Installed with NodeJS)
+- [Yarn](https://yarnpkg.com/lang/en/docs/cli/install/)
+- [Redis](https://redis.io/topics/quickstart) (We recommend using the CLI tools)
+- [Docker](https://docs.docker.com/install/)
+- [ngrok](https://ngrok.com/download) (Not necessary, but it makes the demo much more usable)
+
+
+## Requirements Before Starting
+- This call center project uses Bandwidth's development OpenVidu Stack. You can also use your own OpenVidu server by navigating to
+    - [Docker](https://hub.docker.com/r/openvidu/openvidu-server)
+    - Secrets may be changed in the server.js folder within the root directory
+- This project also requires redis. Follow the link below to install redis-server and redis-cli
+    - [Redis](https://redis.io/topics/quickstart)
+- OpenVidu and other WebRTC technology requires an https connection. Also, if you would like to expose this project to a local network for testing, you must use a technology like ngrok to expose your localhost and port to the internet.
+    - [ngrok](https://ngrok.com/) to learn more about ngrok and to download ngrok tools
+    - Note that since the react front-end is by default hosted on port 3000, you may run this command to create a tunnel: 
+`ngrok http -subdomain=[YOUR SUBDOMAIN] --host-header=rewrite 3000`
+    - You may then access the project at [YOUR SUBDOMAIN].ngrok.io
+        
 ## Available Scripts
 
-In the project directory, you can run:
+In the main project directory, you can run:
 
-### `npm start`
+### Running the Development Server
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+#### `node server.js`
+This starts the development server four the call center demo
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
+### Running the React App
+You can navigate to the client folder in a separate terminal and run:
 
-### `npm test`
+#### `npm start`
+This will start the standalone react app
 
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Running both backend development server and react app concurrently
+In the root folder you can run: 
 
-### `npm run build`
+#### `yarn dev`
+This will run both back-end and front-end concurrently in one terminal
 
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Please Read Before Starting (Something's not Working)
+- When running many back to back sessions (starting and stopping the server), you may notice that an error is thrown when attempting to start the back-end (port 5000 is taken). 
+    - In this scenario you must run
+    `sudo lsof -i tcp:5000`
+    - This will generate the process that your node.js server was running on, and then you need copy that PID and run
+    `kill [PID]`
+- Make sure that the package.json within the /client folder has the correct IP address for your machine. This IP address changes frequently, if you disconnect and reconnect from the local internet connection. Please check your ip address and update it accordingly (port 5000 or whatever you choose to have your port as)
+- If you are running back to back sessions (starting and stopping the server) while not completely terminating or clearing your OpenVidu sessions, the Redis queues will not be cleared. It is best practice to keep a `redis-cli` session running in a terminal window, so that you can use command `flushall` every time you restart to ensure that your call queues have been cleareda
